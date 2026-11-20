@@ -1,0 +1,27 @@
+TP-LINK TL-WN722N v2/v3 — EasyOS — pp4mnk
+
+Basados en la secuencia que funcionó con wlan0 y NetworkManager.
+Requieren root y los comandos ip, iw y nmcli ya instalados.
+
+1. Extrae este ZIP y abre una terminal en la carpeta extraída.
+2. Para activar el modo monitor:
+   sh tplink-monitor.sh
+3. Cierra antes cualquier captura abierta. Para volver al modo normal:
+   sh tplink-normal.sh
+
+Al activar monitor se desconecta el wifi de este adaptador.
+El script normal devuelve la interfaz a NetworkManager e intenta conectar
+con una red guardada. Si no puede, selecciona tu red desde el icono de red.
+No borra tus perfiles ni contraseñas.
+
+Si el adaptador cambia de nombre, indícalo como argumento, por ejemplo:
+   sh tplink-monitor.sh wlan1
+   sh tplink-normal.sh wlan1
+Puedes consultar los nombres con: iw dev
+
+No utilizan airmon-ng check kill ni detienen globalmente los servicios de red.
+Si ejecutaste check kill por tu cuenta, puede ser necesario reiniciar el
+gestor de red desde EasyOS antes de poder volver a conectar.
+
+Comprobada la sintaxis de los scripts. La prueba real debe realizarse en
+tu equipo, ya que aquí no está conectado el adaptador.
